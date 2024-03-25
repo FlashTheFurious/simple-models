@@ -23,7 +23,6 @@ const router = (app) => {
   // For example www.webpage.com
   app.get('/', controllers.index);
 
-
   // When someone POSTS to /setName, call controllers.setName
   // For example, a form submission to www.webpage.com/setName
   app.post('/setName', controllers.setName);
@@ -40,8 +39,6 @@ const router = (app) => {
   // New route for listing all dogs
   app.get('/page4', controllers.listDogs);
 
-
-  
   // catch for any other GET request. The * means anything
   app.get('/*', controllers.notFound);
 };
