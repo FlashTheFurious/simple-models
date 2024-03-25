@@ -171,7 +171,39 @@ const createDog = async (req, res) => {
   }
 };
 
+// Function to search for a dog and update its age
+const searchAndUpdateDogAge = async (req, res) => {
+  const { name } = req.query; // Get the name from the query string
+
+  if (!name) {
+    return res.status(400).json({ error: 'Name is required to perform a search' });
+  }
+
+  try {
+    let dog = await Dog.findOneAndUpdate(
+      { name },
+      { $inc: { age: 1 } },
+      { new: true, runValidators: true }
+    ).lean(); // Using .lean() to get a plain JS object
+
+    if (!dog) {
+      return res.status(404).render('notFound', { page: name, message: 'Dog not found' });
+    }
+
+    // Convert the mongoose document to a plain JavaScript object
+    dog = { ...dog };
+    
+    // Dog found and updated, render page4 with the updated dog
+    return res.render('page4', { dogs: [dog] });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: 'Failed to search and update dog age' });
+  }
+};
+
+
 // Function to increase a dog's age
+// old method, not used anymore
 const increaseDogAge = async (req, res) => {
   if (!req.body.name) {
     return res.status(400).json({ error: 'Name is required to find a dog.' });
@@ -232,6 +264,7 @@ module.exports = {
   searchName,
   notFound,
   createDog,
+  searchAndUpdateDogAge,
   increaseDogAge,
   listDogs,
 };

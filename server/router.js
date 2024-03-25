@@ -34,10 +34,12 @@ const router = (app) => {
   app.post('/createDog', controllers.createDog);
 
   // New route for increasing a dog's age
-  app.post('/increaseDogAge', controllers.increaseDogAge);
+  // Wrong way
+  //app.post('/increaseDogAge', controllers.increaseDogAge);
 
   // New route for listing all dogs
   app.get('/page4', controllers.listDogs);
+  app.get('/searchDog', controllers.searchAndUpdateDogAge);
 
   // catch for any other GET request. The * means anything
   app.get('/*', controllers.notFound);

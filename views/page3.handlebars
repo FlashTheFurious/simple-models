@@ -1,21 +1,24 @@
 <html lang="en">
-<head>
-  <meta charset="utf-8"/>
-  <title>{{title}}</title>
-</head>
-<body>
-  <h1>Welcome to page 3</h1>
-  
-  <form action="/createDog" method="POST">
-    <input type="text" name="name" placeholder="Name" required>
-    <input type="text" name="breed" placeholder="Breed" required>
-    <input type="number" name="age" placeholder="Age" required>
-    <button type="submit">Create Dog</button>
-  </form>
+  <head>
+    <meta charset="utf-8" />
+    <title>{{title}}</title>
+  </head>
+  <body>
+    <h1>Welcome to page 3</h1>
 
-  <a href="/">Home</a>
-  <a href="/page1">Page 1</a>
-  <a href="/page2">Page 2</a>
-  <a href="/page4">Page 4</a>
-</body>
+    <form action="/createDog" method="POST">
+      <input type="text" name="name" placeholder="Name" required />
+      <input type="text" name="breed" placeholder="Breed" required />
+      <input type="number" name="age" placeholder="Age" required />
+      <button type="submit">Create Dog</button>
+    </form>
+    <form action="/searchDog" method="GET">
+      <input type="text" name="name" placeholder="Enter Dog's Name" required />
+      <button type="submit">Search and Increase Age</button>
+    </form>
+    <a href="/">Home</a>
+    <a href="/page1">Page 1</a>
+    <a href="/page2">Page 2</a>
+    <a href="/page4">Page 4</a>
+  </body>
 </html>
