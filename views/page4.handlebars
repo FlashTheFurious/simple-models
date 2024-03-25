@@ -1,0 +1,20 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>{{title}}</title>
+</head>
+<body>
+  <h1>Dog List</h1>
+  
+  <ul>
+    {{#each dogs}}
+      <li>{{this.name}} - {{this.breed}} - {{this.age}}</li>
+    {{/each}}
+  </ul>
+
+  <a href="/">Home</a>
+  <a href="/page1">Page 1</a>
+  <a href="/page2">Page 2</a>
+  <a href="/page3">Create a Dog</a>
+</body>
+</html>
